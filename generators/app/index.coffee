@@ -3,31 +3,19 @@ chalk = require 'chalk'
 yosay = require 'yosay'
 
 module.exports = class extends Generator
-  prompting: ->
-    # Have Yeoman greet the user.
-    @log yosay "Welcome to the gnarly
-      #{chalk.red('generator-coffee-mocha')} generator!"
-
-    prompts = [
-      {
-        type: 'confirm',
-        name: 'someAnswer',
-        message: 'Would you like to enable this option?',
-        default: true
-      }
-    ]
-
-    # To access props later use @props.someAnswer
-    @prompt(prompts).then (@props)=>
-
   writing: ->
-    @fs.copy @templatePath('dummyfile.txt'),
-      @destinationPath('dummyfile.txt')
+    @fs.copy @templatePath('.vscode'),
+      @destinationPath('.vscode')
 
-    @fs.copy @templatePath('somefile.coffee'),
-      @destinationPath('somefile.coffee')
+    @fs.copy @templatePath('test'),
+      @destinationPath('test')
+    @fs.extendJSON 'package.json',
+      scripts:
+        test: 'mocha'
 
   install: ->
-    # right now there is nothing to install but if there were here you would do it.
-    # @installDependencies { bower: false }
-    return # be sure to put this after any intsallation to ensure it finishes.
+    @yarnInstall [
+      'coffeescript', 'coffee-babel'
+      'mocha'
+    ]
+    return
