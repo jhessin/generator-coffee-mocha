@@ -1,6 +1,8 @@
 # generator-coffee-mocha [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 > Add mocha and coffeescript to your project
 
+# NOTICE: No longer maintained. I have given in to peer pressure and migrated to typescript. Feel free to fork and modify or use an existing fork if it is something you are interested in.
+
 # Welcome to generator-coffee-mocha
 
 ## Installation
